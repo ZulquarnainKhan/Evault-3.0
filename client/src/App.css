@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,600&family=Titillium+Web:ital,wght@1,300&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  list-style-type: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background-color: #1f242d;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.App{
+  /* background: blue;
+   */
+  min-height: 100vh;
+  overflow-x: hidden ;
+  overflow-y: hidden ;
+}
+
+#root{
+  margin: auto;
+}
+/* ========= WALLET STARTS ==========  */
+
+.wallet_header {
+  background-color: #333;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  text-align: center;
+}
+.wallet_header p {
+  color: #0ef;
+  font-weight: 800;
+  font-size: 30px;
+}
+.wallet_header span {
+  color: #dad5d4;
+  font-weight: 200;
+  font-size: 24px;
+}
+.connect_wallet_section {
+  color: white;
+  background-color: #1f242d;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.connect_wallet_section p {
+  font-size: 28px;
+  padding-bottom: 18px;
+}
+/* =========WALLTET ENDS ==========  */
+
+/* =========NAVBAR STARTS ==========  */
+
+header {
+  background-color: #323946;
+  padding: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+}
+header .logo {
+  color: #0ef;
+  font-weight: 800;
+  font-size: 20px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.nav_link {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 8px;
+  transition: color 0.5s ease;
+}
+
+.nav_link:hover {
+  color: #0ef;
+}
+
+.nav_link:hover::before {
+  transform: scaleX(1);
+}
+
+nav a{
+  font-weight: 700;
+}
+.nav_link_wallet{
+  color:lightgreen;
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 999;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+  }
+
+  nav li {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 999;
+  }
+  header {
+    padding: 12px;
+  }
+  header .logo {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  nav li {
+    display: block;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 4px;
+  }
+
+}
+
+/* =========NAVBAR END ==========  */
+
+/* =========VIEW ALL TASKS STARTS ==========  */
+
+.display_all_records {
+  color: white;
+  height: 100%;
+  width: 100%;
+  background-color: #1f242d;
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 160px;
+  gap: 24px;
+  padding-bottom: 100px;
+}
+.display_all_records_card {
+  background: linear-gradient(to right ,#0ef,#5100ff) ;
+  padding: 8px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.5s ease;
+
+}
+@keyframes onHoverAnimation{
+  0%{
+    background: linear-gradient(to right ,rgb(1, 133, 182),#5100ff) ;
+  }
+  100%{
+    background: linear-gradient(to right ,#c800ff,#6f00ff) ;
+  }
+}
+.display_all_records_card:hover {
+  /* transition: 0.5s ease; */
+  animation-name: onHoverAnimation;
+  background: linear-gradient(to right ,#c800ff,#6f00ff) ;
+  /* color: black; */
+}
+.view_task_by_id{
+  margin-bottom: 25px;
+  margin-top: 130px;
+}
+@media (max-width: 480px) {
+  .display_all_records_card {
+    width: 300px;
+    font-size: 12px;
+  }
+}
+/* =========VIEW ALL TASKS END ==========  */
+
+/* ========= CREATE TASK ==========  */
+.create_task {
+  display: grid;
+  background-color: #16131b;
+  color: white;
+  height: 100vh;
+  width: 100%;
+}
+.create_task form {
+  margin-top: 200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.create_task input {
+  margin-top: 12px;
+}
+/* ========= CREATE TASK ENDS  ==========  */
+
+/* ========= VIEW TASK ==========  */
+.view_task {
+  background-color: #1f242d;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.view_task_id {
+  color: white;
+  background-color: red;
+}
+
+.view_task .view_task_by_id {
+  margin-top: 200px;
+}
+.empty_div {
+  margin-top: 200px;
+}
+/* .view_task form {
+   
+} */
+.view_form{
+  margin-top: 10rem;
+}
+@media (max-width: 600px) {
+  .view_task_by_id {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 18px !important;
+  }
+}
+/* ========= VIEW TASK ENDS ==========  */
+
+/* ========= UPDATE TASK STARTS ==========  */
+.update_task {
+  background-color: #16131b;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.update_task form {
+  margin-top: 2000px;
+}
+.update_task input {
+  margin-top: 12px;
+}
+.update_form{
+  margin-top: 10rem;
+}
+/* ========= UPDATE TASK ENDS ==========  */
+
+/* ========= DELETE TASK STARTS ==========  */
+
+.delete_task {
+  background-color: #16131b;
+  color: white;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.delete_task form {
+  margin-top: 200px;
+}
+.delete_task input {
+  margin-top: 12px;
+}
+/* ========= DELETE TASK ENDS ==========  */
+
+
+.btn{
+  background-color: #0ef;
+  color:#1f242d;
+  font-weight: bold;
+  font-size: 1.3rem;
+  border-radius: 2rem;
+  /* margin-left: 14rem; */
+  box-shadow: 0 0 0.8rem rgba(134, 147, 148,0.8);
+  margin-top: 2.5rem ;
+  /* display: flex; */
+  /* align-self: flex-end; */
+}
+
+.delete-btn{
+  background-color: #0ef;
+  color:#1f242d;
+  border-radius: 10rem;
+  font-size: 0.8rem;
+  margin-bottom:2rem;
+}
+
+.btn:hover{
+  background-color: #00b6ff;
+  /* color: white; */
+  /* border-radius: 10px; */
+  transition:  0.5s ease;
+  box-shadow: none;
+  /* transition:  color 0.5s ease; */
+}
+.wallet_btn{
+  text-align: center;
+}
+
+h1{
+  color: #fff;
+  margin-bottom: 6rem;
+}
+span{
+  color:#00b6ff
+}
+
+form{
+  text-align: center;
+  margin-bottom: 10rem;
+}
+form label{
+  display: block;
+  text-align: left;
+  width: 26rem;
+  
+}
+
+form label input{
+  border-radius: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-weight: bold;
+  margin-bottom: 1.3rem; 
+  box-shadow: 0 0 0.2rem rgba(134, 147, 148,0.8);
+}
+
+.wallet_container{
+  text-align: center;
+}
+
+.icons{
+  color: white;
+  transition: 0.3s;
+  /* font-size: 0.8rem; */
+  /* margin: auto; */
+  border: none;
+}
+.icons:hover{
+  color: #1f242d;
+  border: none;
+}
+
+.cross{
+  /* max-width: 50px; */
+  height: 40px;
+  /* margin-left: 0.5rem;; */
+  background: none;
+}
+
+button{
+  border: none;
+}
+
+.display_all_records_card_type{
+  background: linear-gradient(to right ,rgb(33, 15, 50),#1d2035) ;
+  padding: 8px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+
+}
+
+.image-list {
+  margin-left: 2rem;
+  width: 200px;
+  min-width: 200px;
+  min-height: 150px;
+  height: 150px;
+}
+
+.delete-form{
+  margin-top: 10rem;
+  
+}
+
+.file-card{
+  display: inline-flex;
+  flex-direction: row;
+  border: 2px red;
+  margin-bottom:1.5rem;
+
+}
+
+.file-card-icon{
+  margin-left: 3rem;  
+  margin-right: 3rem;  
+  font-size: 2.5rem;
+}
+
+.images{
+  color: rgb(12, 156, 87);
+}
