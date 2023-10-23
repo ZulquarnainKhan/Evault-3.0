@@ -12,6 +12,7 @@ import DisplayImage from './sub_Screen/displayImage';
 import DisplayAudio from './sub_Screen/displayAudio';
 import DisplayVideo from './sub_Screen/displayVideo';
 import DisplayDocument from './sub_Screen/displayDocument';
+import Archive from './screens/Archive';
 
 function App() {
   let [state,setState] = useState({web3:null,contract:null,account:null})
@@ -31,6 +32,7 @@ function App() {
     {path:'/displayVideo', element:<DisplayVideo state={state}/>},
     {path:'/displayDocument', element:<DisplayDocument state={state}/>},
     {path:'/displayAudio', element:<DisplayAudio state={state}/>},
+    {path:'/archive', element:<Archive />},
 
     {path:'/Navigate', element:<Navigate/>},
   ])

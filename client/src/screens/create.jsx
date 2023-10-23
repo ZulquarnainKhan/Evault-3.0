@@ -14,6 +14,7 @@ const Create = ({ state }) => {
 
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("No image selected");
+    const [loading, setLoading] = useState(false);
 
     
     const create = async (e) => {
@@ -23,6 +24,7 @@ const Create = ({ state }) => {
         e.preventDefault();
         if (file) {
             try {
+                setLoading(true);
                 const formData = new FormData();
                 formData.append("file", file);
 
@@ -42,10 +44,12 @@ const Create = ({ state }) => {
                 await contract.methods.createRecord(taskName,taskDate,taskType,recordHash).send({from:account})
                 
                 alert("Successfully Image Uploaded");
+                setLoading(false);
                 setFileName("No image selected");
                 setFile(null);
             } catch (e) {
                 alert("Unable to upload image to Pinata");
+                setLoading(false);
             }
         }
         // alert("Successfully Image Uploaded");
@@ -87,7 +91,7 @@ const Create = ({ state }) => {
                 </form> */}
 
                 <form onSubmit={create}>
-                    <h1>CREATE <span>TASK</span></h1>
+                    <h1>UPLOAD <span>TASK</span></h1>
                     <label htmlFor="">
 
                         <input id='taskName' type='string' placeholder="Enter Record Name: " required />
@@ -121,9 +125,16 @@ const Create = ({ state }) => {
                         style={{display:"block"}}
                     />
                     {/* <span className="textArea">Image: {fileName}</span><br/> */}
-                    <button type="submit" className="upload btn" disabled={!file}>
-                        Upload Record
+
+                    {loading ? 
+                    <div class="loadingio-spinner-spinner-u8ly2t3l7cg"><div class="ldio-n3uibpy4xdi">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    </div></div> :
+                    <button type="submit" className="upload btn" disabled={!file || loading}>
+                        UPLOAD
                     </button>
+                    }
+                    
                     {/* <button type='submit' className="btn">CREATE TASK</button> */}
                 </form>
             </div>

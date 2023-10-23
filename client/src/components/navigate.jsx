@@ -19,7 +19,12 @@ const Navigate = ()=>{
                         </li>
                         <li>
                             <Link className="nav_link" to="/create">
-                            Create Task</Link>
+                            Upload</Link>
+                        </li>
+
+                        <li>
+                            <Link className="nav_link" to="/archive">
+                            Archive</Link>
                         </li>
                         
                         {/* <li>

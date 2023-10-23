@@ -12,6 +12,7 @@ const DisplayImage = ({state})=>{
     // console.log(contract, account);
 
     const [RecordList,setRecordList] = useState([])
+    const [search, setSearch] = useState('');
 
     useEffect(()=>{
         const allRecords = async()=>{
@@ -70,7 +71,7 @@ const DisplayImage = ({state})=>{
 
             <div className="display_all_records" >
                 <h1 style={{marginTop:'-2rem',marginBottom:'2rem'}}>Stored <span>Images</span></h1>
-
+                <div>Account:  {account? <span>{account}</span>:""} </div>
                 <div className="file-card"> 
                     <Link  className="file-card-icon storage" to='/display'>
                         {/* <i class='bx bx-images ' ></i> */}
@@ -89,7 +90,8 @@ const DisplayImage = ({state})=>{
 
             {/* <p>{RecordList==="" ? "":"No Files Found!" }</p> */}
             <div>
-                <div>Account:  {account? <span>{account}</span>:""} </div>
+            <input className="searchBar" type="search" placeholder="Search Records" aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}} />
+                     
                 <div className="display_all_records_card_type">
                     <p>Id </p>
                     <p>Name</p>
@@ -109,7 +111,10 @@ const DisplayImage = ({state})=>{
             
 
 
-            {RecordList && RecordList.map((record)=>{
+            {RecordList && RecordList
+            .filter((item) =>  item.name.toLowerCase().includes(search.toLowerCase()))
+                
+            .map((record)=>{
                 return (
                 <>  
                     <div className="display_all_records_card" key={record.id}    style={record.id !=='' && record.name!=='' && record.category!=='' &&record.date!=='' &&record.category!=='document' && record.category!=='video' && record.category!=='audio'? {} : {display: "none"}}>
@@ -118,10 +123,10 @@ const DisplayImage = ({state})=>{
                         <p>{record.name}</p>
                         {/* <p>{record.date}</p> */}
                         <p>{record.category}</p>
-                        {console.log(record.category)}
+                        {/* {console.log(record.category)} */}
                         {/* <p>{record.url}</p> */}
                         <a href = {record.url}  target="_blank">
-                            <i class='bx bxs-file-doc icons' ></i>
+                            <i class='bx bx-images icons' style={{fontSize:"1.5rem"}}></i>
                             {/* <img  src={`${record.url}`} alt="Document" className="image-list"></img> */}
 
                         </a>
