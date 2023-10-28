@@ -9,14 +9,50 @@
   list-style-type: none;
   scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
+  z-index: 100;
 }
 body {
-  background-color: #1f242d;
+  /* background-color: #1f242d; */
+  /* background: linear-gradient(to right top ,#0C0C0C,#4834D4); */
+  /* background: linear-gradient(to right top ,#170E13,#7A7ADB); */
+  /* background: linear-gradient(to right top,#12100E,#2B4162); */
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+
+
+  
+
+    
   min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
+  z-index: -100;
 }
+body::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* min-height: 100%; */
+  /* height: 150%; */
+  min-height: 100vh;
+  background: linear-gradient(#f00,#f0f);
+  clip-path: circle(40% at right 70%);
+}
+
+body::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#2196f3,#e91e63);
+  clip-path: circle(25% at 20% 20%);
+  z-index: 0;
+}
+
 
 .App{
   /* background: blue;
@@ -73,12 +109,13 @@ body {
 header {
   background-color: #323946;
   padding: 25px;
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 0; */
+  height: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
   z-index: 999;
 }
 header .logo {
@@ -91,24 +128,33 @@ nav {
   justify-content: center;
   position: relative;
   z-index: 100;
+  flex-direction:column;
 }
 
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction:column;
+  margin-top: 2rem;
 }
 
 nav li {
   display: inline-block;
   margin-right: 10px;
+  margin: 0.2rem 0;
 }
 
 .nav_link {
   text-decoration: none;
   color: #fff;
-  padding: 8px 8px;
+  /* padding: 8px 8px; */
   transition: color 0.5s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  /* margin-right: 1rem; */
+
 }
 
 .nav_link:hover {
@@ -124,6 +170,9 @@ nav a{
 }
 .nav_link_wallet{
   color:lightgreen;
+  font-size: 1rem;
+  font-weight: bold;
+  /* margin-top: 2rem; */
 }
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -141,7 +190,7 @@ nav a{
 
   nav li {
     margin-right: 0;
-    margin-bottom: 5px;
+    margin-bottom: 1rem;
   }
 }
 
@@ -159,11 +208,11 @@ nav a{
     text-align: center;
     margin-bottom: 4px;
   }
-  nav li {
+  li {
     display: block;
-    margin: 0;
     text-align: center;
     padding-bottom: 4px;
+    margin: 2rem 0;
   }
 
 }
@@ -175,7 +224,7 @@ nav a{
 .display_all_records {
   color: white;
   height: 100%;
-  width: 100%;
+  width: 130%;
   background-color: #1f242d;
   display: flex;
   align-self: center;
@@ -185,19 +234,33 @@ nav a{
   padding-top: 160px;
   gap: 24px;
   padding-bottom: 100px;
+  padding-left: 5rem;
+  background:none;
+  margin-top: -4rem;
+}
+.display_all_records_container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* border: 2px solid red; */
+  width: 50vw;
 }
 .display_all_records_card {
   background: linear-gradient(to right ,#0ef,#5100ff) ;
-  padding: 8px 30px;
+  padding: 8px 10px;
   display: flex;
+  /* flex-direction: column; */
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  width: 600px;
+  width: 150px;
+  height: 150px;
   border-radius: 8px;
   font-size: 1.2rem;
   font-weight: bold;
   transition: background-color 0.5s ease;
-  box-shadow: 6px 6px 20px rgb(4, 4, 4);
+  box-shadow: 6px 6px 20px rgb(30, 59, 86);
+  margin: 2rem 1rem;
 
 }
 @keyframes onHoverAnimation{
@@ -333,7 +396,7 @@ nav a{
   color:#1f242d;
   font-weight: bold;
   font-size: 1.3rem;
-  border-radius: 2rem;
+  border-radius: 0.5rem;
   /* margin-left: 14rem; */
   box-shadow: 0 0 0.8rem rgba(134, 147, 148,0.8);
   margin-top: 2.5rem ;
@@ -344,7 +407,7 @@ nav a{
 .delete-btn{
   background-color: #0ef;
   color:#1f242d;
-  border-radius: 10rem;
+  border-radius: 0rem;
   font-size: 0.8rem;
   margin-bottom:2rem;
 }
@@ -381,7 +444,7 @@ form label{
 }
 
 form label input{
-  border-radius: 1rem;
+  border-radius: 0.4rem;
   width: 100%;
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -419,7 +482,7 @@ button{
 }
 
 .display_all_records_card_type{
-  background: linear-gradient(to right ,rgb(33, 15, 50),#1d2035) ;
+  /* background: linear-gradient(to right ,rgb(33, 15, 50),#1d2035) ;
   padding: 8px 30px;
   display: flex;
   justify-content: space-between;
@@ -428,8 +491,9 @@ button{
   border-radius: 8px;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 1rem;
-  
+  margin-top: 1rem; */
+
+  display: none;
 
 }
 
@@ -449,15 +513,29 @@ button{
 .file-card{
   display: inline-flex;
   flex-direction: row;
-  border: 2px red;
-  /* margin-bottom:1.5rem; */
+  /* border: 2px solid red; */
+  
+  padding: 0.5rem;
+  
+
+  /* background-image: url('./images/evaultFileType.webp'); */
+  /* background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%); */
+  background-image: linear-gradient(-20deg, #8f1bc5 0%, #21d4fd 100%);
+  /* border: 2px solid red; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+  box-shadow: 0 0 2rem 0.2rem rgba(20, 17, 31, 0.5);
+  border-radius: 1rem;
 
 }
+
 
 .file-card-icon{
   margin-left: 3rem;  
   margin-right: 3rem;  
   font-size: 2.5rem;
+  color: black;
 }
 
 .images{
@@ -465,7 +543,7 @@ button{
 }
 
 .searchBar{
-  width:30%;
+  width:30vw;
   margin: 0.5rem auto;
   display: block;
   border-radius: 5px;
@@ -473,6 +551,11 @@ button{
   border: none;
   box-shadow: 3px 3px 10px rgb(21, 21, 21);
   margin-right: 0;
+}
+
+.delete-btn{
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 

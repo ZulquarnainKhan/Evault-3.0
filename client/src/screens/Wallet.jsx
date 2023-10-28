@@ -1,6 +1,8 @@
 import Web3 from 'web3';
+// import "./Wallet.css"
+// import './App.css'
 // import ABI from './../../../api/abi_1.json';
-import ABI from './../../../api/abi_2.json';
+import ABI from './../../abi_2.json'
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
@@ -41,20 +43,54 @@ const Wallet = ({saveState})=>{
     }
 
     return (
-        <>
+        <div style={{
+            
+        }}>
         {/* <div style={{position: 'absolute'}}>
             <ParticleSettings/>
         </div> */}
-        <div className='wallet_header'>
-            <span>WELCOME TO</span>
-            <p>TODO app</p>
+        <div className='wallet_header' style={{background: "none",
+        //  margin:"1rem 1rem 5rem 5rem",
+        //  width:"80vw",
+         display:"block",
+        //  alignSelf: "center",
+        //  alignItems: "center" 
+        // margin: "1rem auto",
+        // marginLeft: "5px"
+         }}>
+            <div style={{
+                margin: "1rem auto",
+                background:"#333",
+                width:"30vw",
+                borderRadius: "1rem"
+            }}>
+                
+                <span>WELCOME TO</span>
+                <p>EVAULT DAPP</p>
+            </div>
         </div>
-            <h1>WELCOME <span>BACK! </span></h1>
+        <div style={{
+            background: "none",
+            position: "relative",
+            padding: "7rem 2rem 10rem 2rem",
+            borderRadius: "2rem",  
+            zIndex:"10",
+            backdropFilter: "blur(1rem)",
+            boxShadow: "10px 10px 36px -6px rgba(0,0,0,0.5)"
+        }}>
+
+            {/* <h1>WELCOME <span>BACK! </span></h1> */}
+            <p>Securely store and access your digital assets </p>
+             <p> with our cutting-edge web storage platform,</p>
+            <p> backed by the transparency and immutability of </p>
+            <p><span>blockchain technology.  </span></p>
+            {/* <p>Your data, your control—experience the future of secure and decentralized web storage</p> */}
             <div className='wallet_container'>
 
             <button onClick={connectWallet} className='btn wallet_btn' >Connect Wallet</button>
             </div>
-        </>
+        </div>
+        </div>
     )
 }
 

@@ -38,12 +38,32 @@ const Delete = ({ state }) => {
     }
     return (
         <>
+            <div style={{
+            // border:"2px solid red",
+            marginTop:"2rem",
+            marginBottom:"4rem",
+            width:"80vw",
+            display: "flex",
+            minHeight: "60vh",
+            backdropFilter:"blur(1rem)",
+            borderRadius:"3rem",
+            boxShadow: "0px 0px 2rem 0.5rem rgba(0,0,0,0.5)"
+        }}>
+        <div >
             <Navigate />
 
+        </div>
+        <div style={{
+            marginLeft:"10rem",
+            marginTop:"-4rem",
+            marginBottom:"-2rem"
+        }}>
             <form onSubmit={deleteRec} className="delete-form">
                 <h1>DELETE <span>Record</span></h1>
                 <div style={{ marginBottom: "2rem" }}>Account:  {account ? <span>{account}</span> : ""} </div>
-                <div className="delete_notice">
+                <div className="delete_notice" style={{
+                    // border: "2px solid red"
+                }}>
                     <p><span>Note: </span>
                         Confirm delete record. Mention record <span>ID</span> below</p>
                     <p><span style={{color:"purple",fontWeight:"bolder",fontSize:"1.5rem"}}>Check Id from storage:  </span></p>
@@ -76,6 +96,9 @@ const Delete = ({ state }) => {
                 </>
                 }
             </form>
+
+            </div>
+            </div>
 
         </>
     )

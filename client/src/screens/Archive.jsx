@@ -22,18 +22,43 @@ function Archive() {
   };
 
   return (
+    <div style={{
+      // border:"2px solid red",
+      marginTop:"2rem",
+      marginBottom:"4rem",
+      width:"80vw",
+      display: "flex",
+      minHeight: "60vh",
+      backdropFilter:"blur(1rem)",
+      borderRadius:"3rem",
+      boxShadow: "0px 0px 2rem 0.5rem rgba(0,0,0,0.5)"
+  }}>
     <div>
+
         <Navigate/>
+    </div>
+    <div style={{marginLeft: "10rem", marginTop:"2rem"}}>
+
       <h1>Archive Records</h1>
-      <input className="searchBar" type="search" placeholder="Search Records" aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}} />
+    
             
-      <ul>
+     
+      <input className="searchBar" type="search" placeholder="Search Records" aria-label="Search" style={{marginBottom: "2rem"}} value={search} onChange={(e)=>{setSearch(e.target.value)}} /> <ul>
         {data.filter((item) =>  item.name.toLowerCase().includes(search.toLowerCase())).map(item => (
         //   <li key={item._id}>{item.name}</li>
           // Add other fields as needed
           <li key={item._id}>
-            <div className="display_all_records_card_type">
+            <div className="display_all_records_card_type" style={{display:"flex",
+                // border:"2px solid red",
+                justifyContent:"space-between",
+                marginBottom: "0.5rem",
+                padding:"0.3rem 1rem",
+                background: "linear-gradient(to right ,#c800ff,#6f00ff)",
+                borderRadius: "0.5rem"
+
+              }}>
                             {/* <p>Id </p> */}
+                            {console.log(item.name)}
                             <p>{item.name}</p>
                             {/* <p>Date</p> */}
                             <p>{item.type}</p>
@@ -56,6 +81,7 @@ function Archive() {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 }

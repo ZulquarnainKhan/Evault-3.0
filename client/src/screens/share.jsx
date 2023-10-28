@@ -39,9 +39,26 @@ const Share = ({ state }) => {
     }
     return (
         <>
-            <Navigate />
+            <div style={{
+      // border:"2px solid red",
+      marginTop:"2rem",
+      marginBottom:"4rem",
+      width:"80vw",
+      display: "flex",
+      minHeight: "60vh",
+      backdropFilter:"blur(1rem)",
+      borderRadius:"3rem",
+      boxShadow: "0px 0px 2rem 0.5rem rgba(0,0,0,0.5)"
+    }}>
+    <div>
 
-            <form onSubmit={shareRec} className="delete-form">
+        <Navigate/>
+    </div>
+
+            <form onSubmit={shareRec} className="delete-form" style={{
+                marginLeft:"10rem",
+                marginTop:"2rem"
+            }}>
                 <h1>Share <span>Record</span></h1>
                 <div style={{ marginBottom: "2rem" }}>Account:  {account ? <span>{account}</span> : ""} </div>
                 <div className="delete_notice">
@@ -70,6 +87,7 @@ const Share = ({ state }) => {
                 </button>
                 }
             </form>
+            </div>
 
         </>
     )

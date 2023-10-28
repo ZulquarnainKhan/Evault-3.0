@@ -60,10 +60,29 @@ const DisplayAll = ({ state }) => {
 
 
     return <>
-        <Navigate />
+    <div style={{
+            // border:"2px solid red",
+            marginTop:"2rem",
+            marginBottom:"4rem",
+            width:"80vw",
+            display: "flex",
+            minHeight: "60vh",
+            backdropFilter:"blur(1rem)",
+            borderRadius:"3rem",
+            boxShadow: "0px 0px 2rem 0.5rem rgba(0,0,0,0.5)"
+        }}>
+        <div >
+            <Navigate />
 
-        <div>{!account ? <div>
-            <h1 style={{ marginTop: '-2rem', marginBottom: '2rem' }}>Connect <span> Metamask</span></h1>
+        </div>
+
+        <div>
+            {!account ? 
+            <div style={{ 
+                display:"block", 
+                margin:"2rem 2rem",
+            }}>
+            <h1 >Connect <span> Metamask</span></h1>
             <span>Note: </span>
             <p>Not connected to the metamask wallet</p>
             <button className='btn wallet_btn' >
@@ -74,7 +93,11 @@ const DisplayAll = ({ state }) => {
             </button>
         </div> :
 
-            <div className="display_all_records" >
+            <div className="display_all_records" 
+            style={{
+                paddingLeft: "0rem",
+                background:"none"
+            }}>
                 <h1 style={{ marginTop: '-2rem', marginBottom: '2rem' }}>Record <span> Storage</span></h1>
                 
                 <div>Account:  {account ? <span>{account}</span> : ""} </div>
@@ -106,11 +129,12 @@ const DisplayAll = ({ state }) => {
 
                         <div className="display_all_records_card_type">
                             <p>Id </p>
+                            <p></p>
                             <p>Name</p>
                             {/* <p>Date</p> */}
-                            <p>Type</p>
+                            {/* <p>Type</p> */}
                             <p></p>
-                            <p>File</p>
+                            {/* <p>File</p> */}
 
                             <p></p>
                             <p></p>
@@ -122,7 +146,7 @@ const DisplayAll = ({ state }) => {
                 </div>
 
 
-
+                <div className="display_all_records_container">
                 {RecordList && RecordList
                 .filter((item) =>  item.name.toLowerCase().includes(search.toLowerCase()))
                 // .filter((item) => (item.name === RecordList.name) && item.name.toLowerCase().includes(search.toLowerCase()))
@@ -130,21 +154,44 @@ const DisplayAll = ({ state }) => {
                 .map((record) => {
                     return (
                         <>
-                            <div className="display_all_records_card" key={record.id} style={record.id !== '' && record.name !== '' && record.category !== '' && record.date !== '' ? {} : { display: "none" }}>
+                            
 
-                                <p>{record.id}.</p>
-                                <p>{record.name}</p>
+                            
+                            <div className="display_all_records_card" key={record.id} style={record.id !== '' && record.name !== '' && record.category !== '' && record.date !== '' ? {} : { display: "none" }}>
+                            <a href={record.url} target="_blank" style={{color:"white",fontSize:"0.8rem",fontWeight:"500"}}>
+
+                                
+                                    <p style={{color: ""}}> Record Id: {record.id}</p>
+                                
+                                    
                                 {/* <p>{record.date}</p> */}
+                                {/* <a href={record.url} target="_blank" style={{color:"white"}}>
                                 <p>{record.category}</p>
+                                </a> */}
                                 {/* {console.log(record.category)} */}
                                 {/* <p>{record.url}</p> */}
                                 {/* <a href={`https://gateway.pinata.cloud/ipfs/${record.substring(6)}`} target="_blank"> */}
-                                <a href={record.file} target="_blank">
-                                    <i class='bx bxs-file-doc icons' style={{ fontSize: "1.5rem" }}></i>
+                                
+                                <p>
+                                {/* <a href={record.url} target="_blank">
+                                    <i class='bx bxs-file-doc icons' style={{ fontSize: "1rem" }}></i>
+                                </a> */}
+
+                                </p>
+                                <p></p>
                                 </a>
-                                <p></p>
-                                <p></p>
                                 <div>
+                                
+
+                                <a href={record.url} target="_blank" style={{color:"white",fontSize:"0.9rem",fontWeight:"900"}}>
+                                    <p style={{color:"black"}}>{record.name}</p>
+                                    <p><i class='bx bxs-file-doc icons' style={{ fontSize: "1rem" }}></i></p>
+                                </a>
+
+                                <hr/>
+                                
+                                    
+                                <div style={{display:"flex", flexDirection:"row"}}>
 
                                     <button className="cross">
                                         <Link className="nav_link" to="/delete">
@@ -158,20 +205,27 @@ const DisplayAll = ({ state }) => {
                                             <i class='bx bx-share-alt icons' ></i>
                                         </Link>
                                     </button>
+                                    </div>
                                 </div>
                             </div>
 
-                            <Link className="nav_link " to="/create" style={{ zIndex: "1000", position: "fixed", bottom: "6rem", right: "20rem" }}>
-                                <i class='bx bxs-plus-circle ' style={{ fontSize: "4rem", color: "#0ef" }}></i>
-                            </Link>
+
+                            
                         </>
                     )
                 }
                 )}
+                </div>
+
+                <Link className="nav_link " to="/create" style={{ zIndex: "1000", position: "fixed", top: "6rem", right: "6rem" }}>
+                                <i class='bx bxs-plus-circle ' style={{ fontSize: "4rem", color: "#0ef" }}></i>
+                </Link>
+                
             </div>
 
 
         }</div>
+    </div>
     </>
 
 }
